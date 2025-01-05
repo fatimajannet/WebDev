@@ -1,0 +1,65 @@
+<!-- to understand the perspective of mobile, ipad, desktop screens -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive design</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /*100% of the viewport height*/
+        background-color: #1a1a1a;
+      }
+      .responsive-div {
+        color: white;
+        width: 100%;
+        max-width: 1200px; /*8it won't expand beyond 1200px*/
+        padding: 10px;
+        font-size: 25px;
+        background-color: #7e0a93;
+        /* maximum= that's the maximum work i can do
+        minimum= i require minimum this much to work */
+      }
+      /* setting according mobile screens */
+      /* whatever i'll put in here will work max upto 600px only */
+      /* @media section is now the main acting css part */
+      @media (max-width: 600px) {
+        body {
+          /*we're just overwriting the thing we need*/
+          /* on mobile: we want the banner to be on top with blue color */
+          /* on the bigger screen, i want the banner in center with purple colour */
+          /* need to be very precised and strategize */
+          align-items: flex-start;
+        }
+        .responsive-div {
+          background-color: #3498db;
+        }
+      }
+      /* @media () {} = @media query (breakpoint) {overwrite desired designs}*/
+
+      @media (min-width: 601px) and (max-width: 1000px) {
+        body {
+          align-items: center;
+        }
+        .responsive-div {
+          background-color: #e74c3c;
+        }
+
+        /* but what about our default behavior??*/
+        /* media queries take over this point. it does not behaves the default until it's commanded */
+        /* in this case we have to provide 2 breakpoints  */
+        /* once it hits the 1001, control gets passed to the default css */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="responsive-div">This div changes based on the screen size.</div>
+  </body>
+</html>

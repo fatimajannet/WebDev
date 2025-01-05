@@ -1,0 +1,92 @@
+/* if you want to import fonts from google fonts, paste it here  */
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
+
+body,
+html {
+  /* background-color: #e70000; (test if it's working by checking bgc) */
+  margin: 0;
+  padding: 0; /*resetting*/
+  font-family: "Gabarito", serif;
+  height: 100%;
+}
+
+.container {
+  background: linear-gradient(
+    135deg,
+    #8a2be2,
+    #4169e1
+  ); /*generally 135deg, 90deg looks good*/
+  display: flex;
+  justify-content: center; /**all the elements under container class*/
+  align-items: center;
+  height: 100%;
+}
+
+.content {
+  text-align: center;
+  /* background-color: rgba(red, green, blue, alpha);  (alpha for opacity)*/
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem; /*width of the letter "m". relative to m = rem*/
+
+  /* i dont like the sharp edges. */
+  border-radius: 10px;
+  max-width: 400px; /*Limiting the max width on any screen.*/
+  transition: box-shadow 0.5s ease-in-out;
+  /* box-shadow: 0 0 20px rgb(0, 0, 0); */
+}
+/* fixing the logo size finally!! */
+.logo {
+  width: 380px;
+  /* height: 75px; (Removed entirely, allowing full height)*/
+  /*my jpg looks ridiculous! i need to fix this*/
+  object-fit: contain; /*there is literally a propperty for it*/
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0); /*pls check the MDN reference for this*/
+}
+
+/* let's target h1 and p */
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* let's manipulate the form now */
+/* make it flex, make it top-bottom */
+form {
+  display: flex; /*automatically aligns left-right*/
+  flex-direction: column;
+}
+
+/* now for the input, with [] we can target specific input field */
+input[type="email"] {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 0.6rem;
+  background-color: #8a2be2;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out; /*indicating where to transition*/
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /*pls check the MDN reference for this*/
+}
+
+button:hover {
+  background-color: #300c52;
+}
+
+.content:hover {
+  transition: transform 0.5s, box-shadow 0.7s;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgb(255, 255, 255), 0 0 50px rgb(255, 255, 255);
+}

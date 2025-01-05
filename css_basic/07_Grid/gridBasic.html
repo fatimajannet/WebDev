@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Introduction</title>
+    <style>
+      .item {
+        background-color: orange;
+        border: 1px solid black;
+      }
+      .grid-container {
+        display: grid; /*it needs some requirments to function*/
+        /*specify ur expectations with row-columns*/
+
+        /*write: gtc <tab>*/
+        grid-template-columns: repeat(3, 1fr); /*1 fraction to each column*/
+
+        /*write: gtr <tab>*/
+        /*Control your row's width here*/
+        grid-template-rows: 100px 200px 100px; /*1st row: 100px width; 2nd row: Undefined until set*/
+        gap: 2px;
+      }
+
+      /* now i will make each of them fancier  */
+      .item1 {
+        background-color: #f377e9;
+        grid-column: 1/3; /*From 1st to start of 3rd column.*/
+        grid-row: 1/2; /*consumption: from 1 to the beginning of 2*/
+      }
+
+      .item2 {
+        grid-column: 3/4; /*3rd to 4th column.*/
+        grid-row: 1/3; /*consumption: from 1 to the beginning of 3*/
+      }
+
+      .item6 {
+        grid-column: 2/4; /*2nd to 4th column.*/
+        /* rather than setting gr, i set 100px to gtr */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item">3</div>
+      <!-- to show how much control u can have, i'm adding more -->
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item item6">6</div>
+    </div>
+  </body>
+</html>

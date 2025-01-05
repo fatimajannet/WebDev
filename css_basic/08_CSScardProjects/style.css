@@ -1,0 +1,35 @@
+/* Body and HTML Background */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #d0d8bc; /* Greenish background */
+  height: 100%; /* Full viewport height */
+}
+
+/* Carousel Wrapper */
+.main {
+  display: flex;
+  justify-content: center; /* Center carousel horizontally */
+  align-items: flex-start; /* Align carousel at the top */
+  width: 100%; /* Full width */
+  height: 30vh; /* Carousel takes 25% of viewport height */
+  overflow: hidden; /* Hide any overflowing content */
+  object-fit: contain;
+}
+
+/* Carousel Slide (for Image) */
+.carousel-slide {
+  width: 100%; /*full width*/
+  height: auto;
+  display: flex; /* Allow flex for content alignment */
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+/* Image Inside Carousel */
+.carousel-item img {
+  max-width: 100%; /*scale image to fit the width*/
+  max-height: 100%; /*scale carousel image to fit the height*/
+  object-fit: contain;
+}

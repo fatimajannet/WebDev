@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation bar varience</title>
+    <style>
+      /* setting bizzare color to make things clear */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #1f1e1e;
+        color: aliceblue;
+      }
+
+      .nav-container {
+        margin-bottom: 20px;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      .nav1 {
+        border: 4px solid #6b6b6b;
+        background-color: #ffffff;
+        padding: 10px;
+      }
+
+      .nav1 ul {
+        /* read: every ul (descendents)  of nav1 class */
+        list-style-type: none; /*removed the bullets*/
+        display: flex; /*default flex behavior is automatically allign everything from left to right */
+        margin: 0px;
+        padding: 0px;
+        justify-content: space-between; /*creates space*/
+      }
+
+      .nav1 li {
+        display: inline;
+        /* all lines ar actually block level element. making them inline to style them */
+      }
+
+      .nav1 a {
+        text-decoration: none;
+        /* it removes the underline from the anchor txt */
+
+        color: rgb(0, 0, 0);
+        background-color: #f5f5f5; /* to visualize*/
+        padding: 1px;
+
+        position: relative; /*in order to sync with after effect*/
+      }
+
+      .nav1 .login-btn {
+        color: rgb(0, 0, 0);
+        background-color: #f03181;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        cursor: crosshair; /*try and see different pointer actions*/
+      }
+
+      .nav1 a::after {
+        content: ""; /*::after must need a content*/
+        position: absolute; /*absolute= user will define where to appear*/
+        /* i have to set the position of the content */
+        bottom: 0px;
+        left: 0px;
+        /* with this much of info, the content has no idea where to appear */
+        /*so i'm adding more directions*/
+        width: 100%;
+        height: 2px;
+        background-color: #1d3fff;
+        transform: scaleX(0);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .nav1 a:hover::after {
+        transform: scaleX(1);
+      }
+
+      /* => twitter style navbar */
+      .nav2 {
+        /* a good idea is to start with changing bgc */
+        background-color: #03643c;
+        width: 200px;
+        padding: 20px;
+      }
+      .nav2 ul {
+        /*targetting all the descendants (uls) of nav2 class*/
+        list-style-type: none; /*remove bullets*/
+        margin: 0px;
+        padding: 0px;
+      }
+      .nav2 li {
+        /*all the descendants, list items*/
+        margin-bottom: 10px;
+      }
+      .nav2 a {
+        /*targetting all the descendants, anchor tags */
+        text-decoration: none;
+        color: #fff;
+        display: block; /*just to stay confirm*/
+        padding: 5px;
+        width: 100%; /*100% of it's container*/
+      }
+      .nav2 a:hover {
+        /*effect*/
+        background-color: #087e2b;
+      }
+      .nav2 button {
+        background-color: #009407;
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 6px;
+        cursor: pointer;
+      }
+      /* trying the hover effect on the button */
+      .nav2 button:hover {
+        background-color: #11521c;
+        border: 1px solid #fff;
+      }
+
+      /* => dropdown */
+      .nav3 {
+        background-color: #279da5;
+        padding: 5px; /*inner space*/
+      }
+      .nav3 ul {
+        list-style: none; /*removing disks*/
+        padding: 0;
+        margin: 0; /*flushing out all the paddings and margins*/
+        display: flex; /*injecting flex*/
+        justify-content: space-around; /*creating space around them(left->right*/
+        align-items: center; /*top -> bottom*/
+      }
+      .nav3 a {
+        text-decoration: none;
+        color: floralwhite;
+        padding: 8px;
+        display: block;
+      }
+
+      .nav3 .dropdown-content {
+        display: none;
+      }
+
+      /* i want to see the contents of About when i hover on it */
+      .nav3 .dropdown:hover .dropdown-content {
+        display: block;
+        /* okay this is taking all my areas */
+        /* do you know the position absolute and relative? (comes in css interview) */
+        /* position absolute = Extracts content from your DOM and displays it elsewhere */
+        position: absolute; /*now compare the before-after behaaviour*/
+        /* now lets decor it */
+        background-color: #3f3f3f;
+        min-width: 130px;
+      }
+      /* i wanted more effects so i did this */
+      .nav3 .dropdown-content a:hover {
+        /*effect*/
+        background-color: #292929;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-container">
+      <h2>Variation 1: Horizontal with underline effect</h2>
+      <nav class="nav1">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <button class="login-btn">Login</button>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="nav-container">
+      <h2>Variation 2: Verticle with hover effect</h2>
+      <nav class="nav2">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+        </ul>
+        <button>Login</button>
+      </nav>
+    </div>
+
+    <div class="nav-container">
+      <h2>Variation 3: Horizontal with dropdown</h2>
+      <nav class="nav3">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#">About</a>
+
+            <div class="dropdown-content">
+              <a href="#">Our Story </a>
+              <a href="#">Team</a>
+              <a href="#">Contact</a>
+            </div>
+          </li>
+          <li><a href="#">Products</a></li>
+          <li>
+            <button class="login-btn">Login</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
